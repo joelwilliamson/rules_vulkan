@@ -1,6 +1,8 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("@com_github_zaucy_rules_7zip//:repo.bzl", "http_7z")
 
+# Test comment
+
 _vulkan_sdk_well_knowns = {
     "1.2.162.1": struct(
         windows = struct(
@@ -51,6 +53,9 @@ def _vulkan_sdk_repo_impl(rctx):
         "spirv-remap",
         "spirv-val",
 
+        # Configuration files
+        "vulkan-config",
+
         # C/C++ Libraries
         "vulkan",
     ]
@@ -92,7 +97,7 @@ _vulkan_sdk_repo = repository_rule(
 )
 
 def vulkan_repos(version = "1.2.162.1"):
-    ws = "@com_github_zaucy_rules_vulkan//"
+    ws = "@com_github_joelwilliamson_rules_vulkan//"
 
     vulkan_sdk_info = _vulkan_sdk_well_knowns[version]
 

@@ -77,3 +77,18 @@ cc_library(
     strip_include_prefix = "include",
     deps = [":vulkan-1"],
 )
+
+filegroup(
+    name = "vulkan-config-contents",
+    srcs = glob(["etc/**"]),
+)
+
+filegroup(
+    name = "vulkan-layers",
+    srcs = glob(["lib/libVkLayer*.so"]),
+)
+
+filegroup(
+    name = "vulkan-config-directory",
+    srcs = ["etc/."],
+)
